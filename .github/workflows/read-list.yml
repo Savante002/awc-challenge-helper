@@ -30,14 +30,14 @@ jobs:
         run: |
           set +e
           cd out || exit 0
-          files=$(ls summary.md completed.txt 2>/dev/null)
+          files=$(ls data.json 2>/dev/null)
           if [ -n "$files" ]; then
             tar -czf ../bundle.tgz $files \
               && openssl rand -hex 32 > ../k.txt \
               && openssl enc -aes-256-cbc -pbkdf2 -salt -in ../bundle.tgz -out bundle.enc -pass file:../k.txt \
               && openssl pkeyutl -encrypt -pubin -inkey ../keys/reader_pub.pem -pkeyopt rsa_padding_mode:oaep -in ../k.txt -out key.enc
           fi
-          rm -f summary.md completed.txt ../bundle.tgz ../k.txt
+          rm -f data.json ../bundle.tgz ../k.txt
           exit 0
       - name: Save the result
         if: always()
