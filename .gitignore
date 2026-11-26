@@ -3,3 +3,4 @@ out/summary.md
 out/completed.txt
 bundle.tgz
 k.txt
+__pycache__/
