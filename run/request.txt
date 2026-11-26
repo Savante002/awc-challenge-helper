@@ -1,0 +1,2 @@
+Any change to this file runs the read-only list reader.
+requested: 2026-11-26 07:22 UTC, Manga Beginner's Challenge picks
